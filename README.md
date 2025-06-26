@@ -5,6 +5,7 @@ A simple Flask-base web application for converting between length, mass, and tem
 # Preview
 
 Here's a quick look at the Unit Converter in action:
+
 ![Unit Converter Demo](assets/demo.gif)
 
 ## Features
