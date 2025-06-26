@@ -60,6 +60,7 @@ unit-converter-web/v2-final/
 │   ├── mass.html        # Mass conversion page
 │   └── temperature.html # Temperature conversion page
 ├── .gitignore
+├── LICENSE
 └── README.md            # You're here!
 ```
 
