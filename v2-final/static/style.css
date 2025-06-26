@@ -1,0 +1,153 @@
+:root {
+  --accent: #2563eb;
+  --accent-hover: #1e40af;
+  --bg: #f9fafb;
+  --fg: #111827;
+  --muted: #6b7280;
+  --radius: 0.5rem;
+  --space: 1rem;
+  --border: 1px solid #e5e7eb;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  font-family: "Product Sans", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 2rem 1rem;
+}
+
+/* Main container */
+main {
+  width: 100%;
+  max-width: 36rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: var(--border);
+  padding: calc(var(--space) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+/* App header inside main */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--border);
+  padding-bottom: 0.75rem;
+  margin-bottom: var(--space);
+}
+
+header h3 {
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Default nav link */
+nav a {
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  transition: background 0.15s ease;
+}
+
+/* Hover effect */
+nav a:hover {
+  background: #f3f4f6;
+}
+
+/* Active or current page link */
+nav a.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* Form */
+form {
+  display: grid;
+  gap: var(--space);
+}
+
+/* Inputs row */
+.input_row {
+  display: flex;
+  grid-template-columns: 1fr 1fr auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+input[type="number"],
+select {
+  font-family: "Product Sans" sans-serif;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  background: #fff;
+  appearance: none;
+}
+
+.input_row label {
+  text-align: center;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+button:hover {
+  background: var(--accent-hover);
+}
+
+/* Result */
+#result {
+  min-height: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .input_row {
+    grid-template-columns: 1fr;
+  }
+
+  .input_row label {
+    display: none;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+}

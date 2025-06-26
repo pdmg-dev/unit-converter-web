@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <header>
+          <h3>UNIT CONVERTER</h3>
+          <nav>
+            <a
+              href="/length"
+              class="{% if active_page == 'length' %}active{% endif %}"
+              >Length</a
+            >
+            <a
+              href="/mass"
+              class="{% if active_page == 'mass' %}active{% endif %}"
+              >Mass</a
+            >
+            <a
+              href="/temperature"
+              class="{% if active_page == 'temperature' %}active{% endif %}"
+              >Temperature</a
+            >
+          </nav>
+        </header>
+      </section>
+      {% block content %}{% endblock content %}
+    </main>
+  </body>
+</html>

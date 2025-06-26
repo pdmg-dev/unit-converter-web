@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<form method="post">
+  <div class="input_row">
+    <input name="value" type="number" step="any" value="{{ request.form.get('value', '') }}" placeholder="Enter value" required />
+    <select name="from_unit" id="from_unit">
+      <option value="C" {% if request.form.get('from_unit') == 'C' %}selected{% endif %}>Celsius</option>
+      <option value="F" {% if request.form.get('from_unit') == 'F' %}selected{% endif %}>Fahrenheit</option>
+      <option value="K" {% if request.form.get('from_unit') == 'K' %}selected{% endif %}>Kelvin</option>
+    </select>
+
+    <label for="to_unit">to</label>
+    <select name="to_unit" id="to_unit">
+      <option value="C" {% if request.form.get('to_unit') == 'C' %}selected{% endif %}>Celsius</option>
+      <option value="F" {% if request.form.get('to_unit') == 'F' %}selected{% endif %}>Fahrenheit</option>
+      <option value="K" {% if request.form.get('to_unit') == 'K' %}selected{% endif %}>Kelvin</option>
+    </select>
+  </div>
+
+  <button type="submit">CONVERT</button>
+
+  <div class="result" id="result">
+    {% if result is not none %} {{result}} {{unit}} {% endif %}
+  </div>
+</form>
+{% endblock content %}

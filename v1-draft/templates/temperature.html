@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Temperature Converter{% endblock %}
+{% block header %}Temperature Converter{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <input type="number" step="any" name="value" required placeholder="Enter value">
+
+      <select name="from_unit">
+        <option value="C" {% if request.form.get('from_unit') == 'C' %}selected{% endif %}>Celsius</option>
+        <option value="F" {% if request.form.get('from_unit') == 'F' %}selected{% endif %}>Fahrenheit</option>
+        <option value="K" {% if request.form.get('from_unit') == 'K' %}selected{% endif %}>Kelvin</option>
+      </select>
+
+      <span>to</span>
+
+      <select name="to_unit">
+        <option value="C" {% if request.form.get('to_unit') == 'C' %}selected{% endif %}>Celsius</option>
+        <option value="F" {% if request.form.get('to_unit') == 'F' %}selected{% endif %}>Fahrenheit</option>
+        <option value="K" {% if request.form.get('to_unit') == 'K' %}selected{% endif %}>Kelvin</option>
+      </select>
+
+    <button type="submit">Convert</button>
+</form>
+
+{% if result is not none %}
+    <p>Converted Value: <strong>{{ result | round(4) }} {{ request.form['to_unit'] }}</strong></p>
+{% endif %}
+{% endblock %}
+

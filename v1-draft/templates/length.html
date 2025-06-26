@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Length Converter{% endblock %}
+{% block header %}Length Converter{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <input type="number" step="any" name="value" required placeholder="Enter value">
+
+      <select name="from_unit">
+        <option value="mm" {% if request.form.get('from_unit') == 'mm' %}selected{% endif %}>Millimeter</option>
+        <option value="cm" {% if request.form.get('from_unit') == 'cm' %}selected{% endif %}>Centimeter</option>
+        <option value="m" {% if request.form.get('from_unit') == 'm' %}selected{% endif %}>Meter</option>
+        <option value="km" {% if request.form.get('from_unit') == 'km' %}selected{% endif %}>Kilometer</option>
+        <option value="in" {% if request.form.get('from_unit') == 'in' %}selected{% endif %}>Inch</option>
+        <option value="ft" {% if request.form.get('from_unit') == 'ft' %}selected{% endif %}>Foot</option>
+        <option value="yd" {% if request.form.get('from_unit') == 'yd' %}selected{% endif %}>Yard</option>
+        <option value="mi" {% if request.form.get('from_unit') == 'mi' %}selected{% endif %}>Mile</option>
+      </select>
+
+      <span>to</span>
+
+      <select name="to_unit">
+        <option value="mm" {% if request.form.get('to_unit') == 'mm' %}selected{% endif %}>Millimeter</option>
+        <option value="cm" {% if request.form.get('to_unit') == 'cm' %}selected{% endif %}>Centimeter</option>
+        <option value="m" {% if request.form.get('to_unit') == 'm' %}selected{% endif %}>Meter</option>
+        <option value="km" {% if request.form.get('to_unit') == 'km' %}selected{% endif %}>Kilometer</option>
+        <option value="in" {% if request.form.get('to_unit') == 'in' %}selected{% endif %}>Inch</option>
+        <option value="ft" {% if request.form.get('to_unit') == 'ft' %}selected{% endif %}>Foot</option>
+        <option value="yd" {% if request.form.get('to_unit') == 'yd' %}selected{% endif %}>Yard</option>
+        <option value="mi" {% if request.form.get('to_unit') == 'mi' %}selected{% endif %}>Mile</option>
+      </select>
+
+    <button type="submit">Convert</button>
+</form>
+
+{% if result is not none %}
+    <p>Converted Value: <strong>{{ result | round(4) }} {{ request.form['to_unit'] }}</strong></p>
+{% endif %}
+{% endblock %}
+

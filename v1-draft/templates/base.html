@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Unit Converter{% endblock %}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      select,
+      input,
+      button {
+        padding: 0.5rem;
+        font-size: 1rem;
+      }
+      nav a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #007bff;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/length">Length</a>
+      <a href="/weight">Weight</a>
+      <a href="/temperature">Temperature</a>
+    </nav>
+
+    <h2>{% block header %}{% endblock %}</h2>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>

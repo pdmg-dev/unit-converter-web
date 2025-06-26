@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Weight Converter{% endblock %}
+{% block header %}Weight Converter{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <input type="number" step="any" name="value" required placeholder="Enter value" >
+
+      <select name="from_unit">
+        <option value="mg" {% if request.form.get('from_unit') == 'mg' %}selected{% endif %}>Milligram</option>
+        <option value="g" {% if request.form.get('from_unit') == 'g' %}selected{% endif %}>Gram</option>
+        <option value="kg" {% if request.form.get('from_unit') == 'kg' %}selected{% endif %}>Kilogram</option>
+        <option value="oz" {% if request.form.get('from_unit') == 'oz' %}selected{% endif %}>Ounce</option>
+        <option value="lb" {% if request.form.get('from_unit') == 'lb' %}selected{% endif %}>Pound</option>
+      </select>
+
+      <span>to</span>
+
+      <select name="to_unit">
+        <option value="mg" {% if request.form.get('to_unit') == 'mg' %}selected{% endif %}>Milligram</option>
+        <option value="g" {% if request.form.get('to_unit') == 'g' %}selected{% endif %}>Gram</option>
+        <option value="kg" {% if request.form.get('to_unit') == 'kg' %}selected{% endif %}>Kilogram</option>
+        <option value="oz" {% if request.form.get('to_unit') == 'oz' %}selected{% endif %}>Ounce</option>
+        <option value="lb" {% if request.form.get('to_unit') == 'lb' %}selected{% endif %}>Pound</option>
+      </select>
+
+    <button type="submit">Convert</button>
+</form>
+
+{% if result is not none %}
+    <p>Converted Value: <strong>{{ result | round(4) }} {{ request.form['to_unit'] }}</strong></p>
+{% endif %}
+{% endblock %}
+
