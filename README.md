@@ -70,4 +70,4 @@ This project is open-source. Feel free to fork, extend, and improve.
 
 ## Project Source
 
-This project was developed following the [Unit Converte](https://roadmap.sh/projects/unit-converter) specification from [roadmap.sh](https://roadmap.sh/).
+This project was developed following the [Unit Converter](https://roadmap.sh/projects/unit-converter) specification from [roadmap.sh](https://roadmap.sh/).
